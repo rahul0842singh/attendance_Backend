@@ -8,7 +8,6 @@ const path = require("path");
 const multer = require("multer");
 const Razorpay = require("razorpay");
 const crypto = require("crypto");
-const port = 9000;
 const saltRounds = 10;
 const fs = require("fs");
 const jwt = require("jsonwebtoken");
@@ -1297,7 +1296,7 @@ app.post('/getTimesheet/:employee_id/', async (req, res) => {
 });
 
 
-
-app.listen(port, () => {
-  console.log(`Connected to ${port}`);
-});
+const port = process.env.PORT || 9000;
+ app.listen(port, () => {
+   console.log(`Server listening on port ${port}`);
+ });
